@@ -5,33 +5,34 @@ class CSharpMasterClass
 {
     static void Main(string[] args)
     {
-        Stack<int> stack = new Stack<int>();
+        Queue<Order> ordersQueue = new Queue<Order>();
 
-        stack.Push(1);
-        stack.Push(2);
-        stack.Push(3);
-
-        while (stack.Count > 0)
+        foreach (var order in RecieveOrdersFromBranch1())
         {
-            Console.WriteLine($"이번에 제거된 숫자는? {stack.Pop()}");
-            Console.WriteLine($"스택안에 남은 숫자갯수는? {stack.Count}");
+            
         }
+    }
 
-        int[] numbers = { 8, 2, 3, 4, 7, 6, 2 };
-
-        Stack<int> myStack = new Stack<int>();
-
-        foreach (var num in numbers)
+    static Order[] RecieveOrdersFromBranch1()
+    {
+        Order[] orders = new Order[]
         {
-            myStack.Push(num);
-        }
-        int[] reverseNum = new int[numbers.Length];
-        
-        for (int i = 0; i < reverseNum.Length; i++)
+            new Order(1,5),
+            new Order(2,4),
+            new Order(6,10),
+        };
+        return orders;
+    }
+
+    static Order[] RecieveOrdersFromBranch2()
+    {
+        Order[] orders = new Order[]
         {
-            reverseNum[i] = myStack.Pop();
-            Console.Write(" "+reverseNum[i]);
-        }
+            new Order(3,5),
+            new Order(4,4),
+            new Order(5,10),
+        };
+        return orders;
     }
 }
             
