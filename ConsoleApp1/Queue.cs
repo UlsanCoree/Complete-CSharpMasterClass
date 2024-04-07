@@ -11,4 +11,9 @@ class Order
         this.OrderID = id;
         this.OrderQuantity = orderQuantity;
     }
+
+    public void ProcessOrder()
+    {
+        Console.WriteLine($"Order {OrderID} Processed!");
+    }
 }

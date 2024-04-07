@@ -3,13 +3,24 @@ using System.Collections.Generic;
 
 class CSharpMasterClass
 {
-    static void Main(string[] args)
+    static void Main()
     {
         Queue<Order> ordersQueue = new Queue<Order>();
 
         foreach (var order in RecieveOrdersFromBranch1())
         {
-            
+            ordersQueue.Enqueue(order);
+        }
+
+        foreach (var order in RecieveOrdersFromBranch2())
+        {
+            ordersQueue.Enqueue(order);
+        }
+
+        while (ordersQueue.Count > 0)
+        {
+            Order currentOrder = ordersQueue.Dequeue();
+            currentOrder.ProcessOrder();
         }
     }
 
